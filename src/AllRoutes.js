@@ -10,7 +10,7 @@ function AllRoutes() {
     <AnimatePresence mode="wait" initial={false}>
       <Routes location={location} key={location.pathname} >
         <Route path="/" element={<NavBar />} >
-          <Route index element={<HomePage />} />
+          <Route index element={<HomePage />}/>
         </Route>
       </Routes>
     </AnimatePresence>
