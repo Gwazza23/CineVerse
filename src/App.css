@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap');
+
+:root{
+    --primary: #66FCF1;
+    --primary-dark: #45A29E;
+    --secondary: #1f2833;
+    --secondary-light: #303e4f; 
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+body {
+    background-color: #0b0c10;
+}
