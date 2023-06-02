@@ -32,6 +32,7 @@ nav .openMenu{
 }
 
 .navbar-logo h1{
+    cursor: default;
     font-family: 'inter';
     margin: 1.5vh;
     color: var(--primary);
