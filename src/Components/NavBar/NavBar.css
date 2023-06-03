@@ -6,6 +6,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 1.5px solid var(--secondary-light);
 }
 
 .menu {

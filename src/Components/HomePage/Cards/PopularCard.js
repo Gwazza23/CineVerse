@@ -19,7 +19,7 @@ function PopularCard({ movies }) {
       </div>
       <div className="popular-cards">
         {movies &&
-          movies.data.slice(0, 3).map((movie, index) => {
+          movies.popular.slice(0, 3).map((movie, index) => {
             const isHovered = hoveredIndex === index;
             return (
               <div

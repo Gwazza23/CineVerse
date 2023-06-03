@@ -3,19 +3,19 @@ import axios from "axios";
 
 const api_key = process.env.REACT_APP_API_KEY;
 
-const getPopularMovies = createAsyncThunk(
-  "popular/getPopularMovies",
+const getMovieGenres = createAsyncThunk(
+  "genre/getMovieGenres",
   async (thunkAPI) => {
     const response = await axios.get(
-      "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+      "https://api.themoviedb.org/3/genre/tv/list",
       { headers: { Authorization: `Bearer ${api_key}` } }
     );
     return response.data;
   }
 );
 
-const popularSlice = createSlice({
-  name: "popular",
+const genreSlice = createSlice({
+  name: "genre",
   initialState: {
     data: [],
     status: "idle",
@@ -23,20 +23,20 @@ const popularSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getPopularMovies.pending, (state) => {
+      .addCase(getMovieGenres.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(getPopularMovies.fulfilled, (state, action) => {
+      .addCase(getMovieGenres.fulfilled, (state, action) => {
         state.status = "completed";
-        state.data = action.payload.results;
+        state.data = action.payload.genres;
       })
-      .addCase(getPopularMovies.rejected, (state, action) => {
+      .addCase(getMovieGenres.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
       });
   },
 });
 
-export { getPopularMovies }
-export default popularSlice.reducer;
-export const selectPopular = (state) => state.popular;
+export { getMovieGenres };
+export default genreSlice.reducer;
+export const selectGenre = (state) => state.genre;
