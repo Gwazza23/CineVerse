@@ -33,6 +33,7 @@ console.log(genreNames)
       dispatch(getMoviesByGenre(data.id));
     });
   }, [dispatch, genres.data]);
+
   return (
     <div className="genre-list-div">
       <div className="genre-list-title">

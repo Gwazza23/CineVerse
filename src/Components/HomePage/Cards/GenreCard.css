@@ -58,7 +58,7 @@
 }
 
 .genre-card h3 {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
   position: relative;
   z-index: 1;
   color: white;
@@ -70,29 +70,35 @@
   transition: all 0.3s ease-in-out;
 }
 
-@media only screen and (max-width: 480px ){
-    .genre-list-div{
-        max-height: fit-content;
-    }
+@media only screen and (max-width: 480px) {
+  .genre-list-div {
+    max-height: fit-content;
+  }
 
-    .genre-card {
-        width: 49%;
-        height: 15vh;
-    }
+  .genre-card:hover h3 {
+    color: white;
+    font-size: 1.1rem;
+    transition: none;
+  }
+
+  .genre-card {
+    width: 49%;
+    height: 15vh;
+  }
 }
 
-@media only screen and (max-width: 380px ){
-    .genre-list-div{
-        max-height: 45vh;
-    }
-    .genre-list{
-        border: 1px solid var(--secondary-light);
-        border-radius: 5px;
-        height: 33.5vh;
-        overflow: scroll;
-    }
-    .genre-card {
-        margin: 0.5vh 0.5vh;
-        width: 100%;
-    }
+@media only screen and (max-width: 380px) {
+  .genre-list-div {
+    max-height: 45vh;
+  }
+  .genre-list {
+    border: 1px solid var(--secondary-light);
+    border-radius: 5px;
+    height: 33.5vh;
+    overflow: scroll;
+  }
+  .genre-card {
+    margin: 0.5vh 0.5vh;
+    width: 100%;
+  }
 }
