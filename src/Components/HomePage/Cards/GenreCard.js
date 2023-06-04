@@ -14,7 +14,9 @@ function GenreCard({ genres }) {
   const genreNames = [];
   const movieDetails = [];
 
-  genreName.forEach((genre) => genreNames.push({name:genre["name"], id: genre['id']}));
+  genreName.forEach((genre) =>
+    genreNames.push({ name: genre["name"], id: genre["id"] })
+  );
   genreMovie.forEach((movie) =>
     movieDetails.push({
       title: movie["title"],
@@ -22,7 +24,7 @@ function GenreCard({ genres }) {
       poster_path: movie["poster_path"],
     })
   );
-console.log(genreNames)
+
   let combined = [];
   for (let i = 0; i < genreNames.length; i++) {
     combined.push({ genre: genreNames[i], movie: movieDetails[i] });
@@ -53,9 +55,9 @@ console.log(genreNames)
                       ? `url(https://image.tmdb.org/t/p/w342${backdropPath})`
                       : "",
                   }}
-                  key={genre["genre"]['id']}
+                  key={genre["genre"]["id"]}
                 >
-                  <h3>{genre["genre"]['name']}</h3>
+                  <h3>{genre["genre"]["name"]}</h3>
                 </div>
               );
             })}

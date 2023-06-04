@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap");
+
+.now-playing-div{
+    border: 1.5px solid var(--secondary-light);
+    margin: 5vh;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    padding: 1vh;
+}
+.now-playing-title{
+    width: 91%;
+    margin: 0px auto;
+    padding: 1vh;
+    font-family: 'inter';
+}
+.now-playing-title h2{
+    color: var(--primary);
+    padding: 1vh;
+}
+.now-playing-list{
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--secondary-light);
+    border-radius: 5px;
+    width: 91%;
+    margin: 0px auto;
+    padding: 1vh;
+    overflow: scroll;
+}
+.now-playing-card{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    height: 35vh;
+    min-width: 23.4vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0vh 1vh;
+    position: relative;
+}
+
+.now-playing-card::before { /* Added ::before pseudo-element */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity value here */
+    opacity: 0;
+    transition: opacity 0.3s ease; /* Added transition for smooth animation */
+  }
+
+  .now-playing-card:hover::before { /* Changed from .now-playing-card:hover h3 */
+    opacity: 1;
+  }
+
+
+.now-playing-card h3{
+    font-family: 'inter';
+    text-align: center;
+    visibility: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.now-playing-card:hover h3{
+    visibility: visible;
+}
+
