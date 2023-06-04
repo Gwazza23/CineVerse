@@ -15,7 +15,7 @@
 }
 
 nav .menu li h4 {
-    cursor: pointer;
+    cursor:pointer;
     display: inline-block;
     padding: 2.5vh;
     font-family: 'inter';
@@ -33,11 +33,13 @@ nav .openMenu{
 }
 
 .navbar-logo h1{
-    cursor: default;
+    cursor: pointer;
     font-family: 'inter';
     margin: 1.5vh;
     color: var(--primary);
 }
+
+
 
 @media (max-width: 430px){
     .navbar{

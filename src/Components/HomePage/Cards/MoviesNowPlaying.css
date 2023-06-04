@@ -82,3 +82,8 @@
     visibility: visible;
 }
 
+@media only screen and (max-width: 430px ){
+    .now_playing-card:focus::before{
+        opacity:1
+    }
+}

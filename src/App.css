@@ -17,3 +17,12 @@
 body {
     background-color: #15171f;
 }
+
+.active h4{
+    background-color: var(--secondary-light);
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
