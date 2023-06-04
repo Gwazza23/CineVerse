@@ -27,6 +27,17 @@
     padding: 1vh;
     overflow: scroll;
 }
+.now-playing-list::-webkit-scrollbar{
+    width: 0px;
+    height: 5px;
+}
+.now-playing-list::-webkit-scrollbar-track{
+    background-color: var(--secondary-light);
+}
+.now-playing-list::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 5px;
+}
 .now-playing-card{
     cursor: pointer;
     display: flex;
