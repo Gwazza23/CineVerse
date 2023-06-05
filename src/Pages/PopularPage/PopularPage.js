@@ -10,16 +10,25 @@ function PopularPage() {
 
   const handleNextPage = () => {
     setPage(page + 1);
+    scrollToTop();
   };
   const handlePreviousPage = () => {
-    setPage(page -1);
-  }
+    setPage(page - 1);
+    scrollToTop();
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   const dispatch = useDispatch();
   const popularList = useSelector(selectLists).popular;
   useEffect(() => {
     dispatch(getPopularMovies(page));
-  }, [dispatch,page]);
+  }, [dispatch, page]);
   return (
     <>
       <div className="popular-page-div">
@@ -35,9 +44,9 @@ function PopularPage() {
         </div>
       ) : (
         <div className="btn-div">
-          <Button page={"previousPage"} onClick={handlePreviousPage}/>
+          <Button page={"previousPage"} onClick={handlePreviousPage} />
           <p>{page}</p>
-          <Button page={"nextPage"} onClick={handleNextPage}/>
+          <Button page={"nextPage"} onClick={handleNextPage} />
         </div>
       )}
     </>
