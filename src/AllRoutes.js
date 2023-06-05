@@ -7,6 +7,7 @@ import HomePage from "./Pages/HomePage/HomePage";
 import PopularPage from "./Pages/PopularPage/PopularPage";
 import TopRatedPage from './Pages/TopRatedPage/TopRatedPage';
 import UpcomingPage from './Pages/UpcomingPage/UpcomingPage';
+import MoviePage from './Pages/MoviePage/MoviePage';
 
 function AllRoutes() {
     const location = useLocation();
@@ -18,6 +19,7 @@ function AllRoutes() {
           <Route path="popular" element={<PopularPage />} />
           <Route path='top-rated' element={<TopRatedPage />}/>
           <Route path='upcoming' element={<UpcomingPage />}/>
+          <Route path='movie/:id' element={<MoviePage />}/>
         </Route>
       </Routes>
     </AnimatePresence>

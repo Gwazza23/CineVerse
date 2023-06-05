@@ -4,9 +4,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMoviesByGenre, selectLists } from "../../../Slices/MovieListSlice";
 import { selectGenre } from "../../../Slices/GenreSlice";
+import { useNavigate } from 'react-router-dom'
 
 function GenreCard({ genres }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const genreMovie = useSelector(selectLists).genre.slice(0, 5);
   const genreName = useSelector(selectGenre).data.slice(1, 6);
@@ -56,6 +58,9 @@ function GenreCard({ genres }) {
                       : "",
                   }}
                   key={genre["genre"]["id"]}
+                  onClick={() => {
+                    navigate(`/genre/${genre['genre']['id']}`)
+                  }}
                 >
                   <h3>{genre["genre"]["name"]}</h3>
                 </div>

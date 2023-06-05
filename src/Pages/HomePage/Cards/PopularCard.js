@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {Link} from 'react-router-dom'
 import "./PopularCard.css";
 
 function PopularCard({ movies }) {
@@ -22,7 +23,7 @@ function PopularCard({ movies }) {
           movies.popular.slice(0, 3).map((movie, index) => {
             const isHovered = hoveredIndex === index;
             return (
-              <div
+              <Link to={`/movie/${movie.id}`}><div
                 className="movie-card"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
@@ -36,7 +37,7 @@ function PopularCard({ movies }) {
                   <h3>{movie.title}</h3>
                   <p>{movie.overview}</p>
                 </div>
-              </div>
+              </div></Link>
             );
           })}
       </div>
