@@ -9,6 +9,20 @@
     grid-gap: 4vh;
 }
 
+.btn-div{
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-div p{
+    cursor:default;
+    font-size: 1.5rem;
+    margin:  0vh 1.5vh;
+    color: var(--primary);
+}
+
 @media only screen and (max-width:430px){
     .popular-page-div{
         display: block;

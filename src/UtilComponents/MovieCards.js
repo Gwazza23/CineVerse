@@ -1,7 +1,6 @@
 import './MovieCards.css'
 
 function MovieCards({movie}) {
-    console.log(movie)
   return (
     <div className='card' style={{backgroundImage:`url(https://image.tmdb.org/t/p/w342${movie.poster_path})`}}>
         <div className='card-details'>

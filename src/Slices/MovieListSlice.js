@@ -5,9 +5,10 @@ const api_key = process.env.REACT_APP_API_KEY;
 
 const getPopularMovies = createAsyncThunk(
   "lists/getPopularMovies",
-  async (thunkAPI) => {
+  async (page) => {
+
     const response = await axios.get(
-      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
+      `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`,
       { headers: { Authorization: `Bearer ${api_key}` } }
     );
     return response.data;
