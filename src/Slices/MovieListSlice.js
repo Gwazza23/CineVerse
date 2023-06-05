@@ -25,6 +25,17 @@ const getUpcomingMovies = createAsyncThunk(
   }
 );
 
+const getTopRatedMovies = createAsyncThunk(
+  "lists/getTopRatedMovies",
+  async (page) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}`,
+      { headers: { Authorization: `Bearer ${api_key}` } }
+    );
+    return response.data;
+  }
+);
+
 const getMoviesByGenre = createAsyncThunk(
   "lists/getMoviesByGenre",
   async (genreId) => {
@@ -53,6 +64,7 @@ const MovieListSlice = createSlice({
     popular: [],
     genre: [],
     upcoming: [],
+    topRated: [],
     nowPlaying: [],
     status: "idle",
     error: null,
@@ -102,10 +114,27 @@ const MovieListSlice = createSlice({
       .addCase(getUpcomingMovies.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
+      })
+      .addCase(getTopRatedMovies.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getTopRatedMovies.fulfilled, (state, action) => {
+        state.status = "completed";
+        state.topRated = action.payload.results;
+      })
+      .addCase(getTopRatedMovies.rejected, (state, action) => {
+        state.status = "error";
+        state.error = action.error.message;
       });
   },
 });
 
-export { getPopularMovies, getMoviesByGenre, getMoviesNowPlaying, getUpcomingMovies };
+export {
+  getPopularMovies,
+  getMoviesByGenre,
+  getMoviesNowPlaying,
+  getUpcomingMovies,
+  getTopRatedMovies
+};
 export default MovieListSlice.reducer;
 export const selectLists = (state) => state.lists;
