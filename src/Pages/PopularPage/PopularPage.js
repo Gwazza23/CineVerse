@@ -1,9 +1,9 @@
-import "./PopularPage.css";
+import "../../Util/Pages.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPopularMovies, selectLists } from "../../Slices/MovieListSlice";
-import MovieCards from "../../UtilComponents/MovieCards";
-import Button from "../../UtilComponents/Button";
+import MovieCards from "../../Util/MovieCards";
+import Button from "../../Util/Button";
 
 function PopularPage() {
   const [page, setPage] = useState(1);
@@ -31,7 +31,7 @@ function PopularPage() {
   }, [dispatch, page]);
   return (
     <>
-      <div className="popular-page-div">
+      <div className="page-div">
         {popularList &&
           popularList.map((movie) => {
             return <MovieCards movie={movie} key={movie.id} />;

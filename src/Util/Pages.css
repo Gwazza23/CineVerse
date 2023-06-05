@@ -1,4 +1,4 @@
-.popular-page-div{
+.page-div{
     border: 1.5px solid var(--secondary-light);
     margin: 5vh;
     background-color: var(--secondary);
@@ -23,7 +23,7 @@
 }
 
 @media only screen and (max-width:430px){
-    .popular-page-div{
+    .page-div{
         display: block;
         
     }

@@ -6,9 +6,19 @@ const api_key = process.env.REACT_APP_API_KEY;
 const getPopularMovies = createAsyncThunk(
   "lists/getPopularMovies",
   async (page) => {
-
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`,
+      { headers: { Authorization: `Bearer ${api_key}` } }
+    );
+    return response.data;
+  }
+);
+
+const getUpcomingMovies = createAsyncThunk(
+  "lists/getUpcomingMovies",
+  async (page) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${page}`,
       { headers: { Authorization: `Bearer ${api_key}` } }
     );
     return response.data;
@@ -42,6 +52,7 @@ const MovieListSlice = createSlice({
   initialState: {
     popular: [],
     genre: [],
+    upcoming: [],
     nowPlaying: [],
     status: "idle",
     error: null,
@@ -80,10 +91,21 @@ const MovieListSlice = createSlice({
       .addCase(getMoviesNowPlaying.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
+      })
+      .addCase(getUpcomingMovies.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getUpcomingMovies.fulfilled, (state, action) => {
+        state.status = "loading";
+        state.upcoming = action.payload.results;
+      })
+      .addCase(getUpcomingMovies.rejected, (state, action) => {
+        state.status = "error";
+        state.error = action.error.message;
       });
   },
 });
 
-export { getPopularMovies, getMoviesByGenre, getMoviesNowPlaying };
+export { getPopularMovies, getMoviesByGenre, getMoviesNowPlaying, getUpcomingMovies };
 export default MovieListSlice.reducer;
 export const selectLists = (state) => state.lists;
