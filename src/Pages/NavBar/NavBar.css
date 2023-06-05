@@ -18,7 +18,6 @@ nav .menu li h4 {
     cursor:pointer;
     display: inline-block;
     padding: 2.5vh;
-    font-family: 'inter';
     font-weight: lighter;
 }
 
@@ -34,7 +33,6 @@ nav .openMenu{
 
 .navbar-logo h1{
     cursor: pointer;
-    font-family: 'inter';
     margin: 1.5vh;
     color: var(--primary);
 }

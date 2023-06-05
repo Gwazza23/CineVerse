@@ -7,7 +7,7 @@ const getPopularMovies = createAsyncThunk(
   "lists/getPopularMovies",
   async (thunkAPI) => {
     const response = await axios.get(
-      "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+      "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1",
       { headers: { Authorization: `Bearer ${api_key}` } }
     );
     return response.data;

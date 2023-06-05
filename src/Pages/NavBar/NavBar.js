@@ -26,7 +26,7 @@ function NavBar() {
         </div>
         <ul className={`menu ${open ? "open" : ""}`}>
           <li>
-            <NavLink to={"/popular"} activeClassName={"active"}>
+            <NavLink to={"/popular"} activeclassname={"active"}>
               <h4>Popular</h4>
             </NavLink>
           </li>

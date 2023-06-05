@@ -12,7 +12,6 @@
 .genre-list-title {
   width: 91%;
   margin: 0px auto;
-  font-family: "inter";
   padding: 1vh 1vh 1vh 1vh;
 }
 .genre-list-title h2 {
@@ -35,7 +34,6 @@
   justify-content: center;
   position: relative;
   padding: 1vh;
-  font-family: "inter";
   width: 32.3%;
   height: 15vh;
   padding: 5%;

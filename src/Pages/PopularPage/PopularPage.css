@@ -1,0 +1,17 @@
+.popular-page-div{
+    border: 1.5px solid var(--secondary-light);
+    margin: 5vh;
+    background-color: var(--secondary);
+    padding: 2vh;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20vw,1fr));
+    grid-gap: 4vh;
+}
+
+@media only screen and (max-width:430px){
+    .popular-page-div{
+        display: block;
+        
+    }
+}

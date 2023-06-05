@@ -11,7 +11,6 @@
     width: 91%;
     margin: 0px auto;
     padding: 1vh;
-    font-family: 'inter';
 }
 .now-playing-title h2{
     color: var(--primary);
@@ -71,7 +70,6 @@
 
 
 .now-playing-card h3{
-    font-family: 'inter';
     text-align: center;
     visibility: hidden;
     position: relative;

@@ -1,4 +1,3 @@
-import "./HomePage.css";
 import PopularCard from "./Cards/PopularCard";
 import GenreCard from "./Cards/GenreCard";
 

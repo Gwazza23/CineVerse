@@ -2,11 +2,11 @@ import './App.css'
 import React from "react";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
-import NavBar from "./Components/NavBar/NavBar";
-import HomePage from "./Components/HomePage/HomePage";
-import PopularPage from "./Components/PopularPage/PopularPage";
-import TopRatedPage from './Components/TopRatedPage/TopRatedPage';
-import UpcomingPage from './Components/UpcomingPage/UpcomingPage';
+import NavBar from "./Pages/NavBar/NavBar";
+import HomePage from "./Pages/HomePage/HomePage";
+import PopularPage from "./Pages/PopularPage/PopularPage";
+import TopRatedPage from './Pages/TopRatedPage/TopRatedPage';
+import UpcomingPage from './Pages/UpcomingPage/UpcomingPage';
 
 function AllRoutes() {
     const location = useLocation();
