@@ -2,7 +2,11 @@
     cursor: pointer;
     border: 1px solid var(--secondary-light);
     background-color: var(--secondary);
-    padding: 1vh;
+    padding: 1.5vh;
     border-radius: 5px;
     margin: 1vh;
+}
+
+.btn:hover{
+    background-color: var(--secondary-light);
 }
