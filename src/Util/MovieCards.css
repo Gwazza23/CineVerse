@@ -53,4 +53,7 @@
   .card:focus .card-details {
     transform: translateY(0);
   }
+  .card:hover .card-details{
+    transition: none;
+  }
 }
