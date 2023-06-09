@@ -19,6 +19,7 @@
   height: 70vh;
   width: 33%;
 }
+
 .banner-details-info {
   width: 33%;
   display: flex;
@@ -35,10 +36,10 @@
   margin: 1vh;
 }
 .banner-details-overview {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    height: auto;
+  display: block;
+  text-align: center;
+  margin: auto 0vh;
   width: 33%;
 }
 .banner-details-overview h3 {
@@ -62,8 +63,8 @@
 }
 .banner-details img {
   border: 1px solid var(--secondary);
-  height: 50vh;
-  width: auto;
+  height: auto;
+  width: 20%;
   opacity: 1;
 }
 .banner-details h2 {
@@ -98,4 +99,14 @@
   .banner-details-info, .banner-details-overview  {
     text-align: center;
   }
+  .banner-details img{
+    height: 50vh;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 770px){
+    .banner-details-overview p, .banner-details-info p {
+        font-size: 85%;
+    }
 }
