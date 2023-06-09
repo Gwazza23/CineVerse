@@ -9,7 +9,7 @@ function MoviePage() {
   const dispatch = useDispatch();
   const {id} = useParams();
 
-  const movie = useSelector(selectMovies).data
+  const movie = useSelector(selectMovies).movie;
 
   useEffect(() => {
     dispatch(getMovieDetails(id))

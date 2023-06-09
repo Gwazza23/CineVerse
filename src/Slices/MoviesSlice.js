@@ -17,7 +17,7 @@ const getMovieDetails = createAsyncThunk(
 const MovieSlice= createSlice({
     name: 'movies',
     initialState: {
-        data: [],
+        movie: [],
         status: "idle",
         error: null
     },
@@ -28,7 +28,7 @@ const MovieSlice= createSlice({
             })
             .addCase(getMovieDetails.fulfilled, (state,action) => {
                 state.status = "completed";
-                state.data = action.payload;
+                state.movie = action.payload;
             })
             .addCase(getMovieDetails.rejected, (state,action) => {
                 state.status = 'error';
