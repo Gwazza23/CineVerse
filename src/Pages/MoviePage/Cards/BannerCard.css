@@ -1,6 +1,7 @@
 .banner-div {
   height: 70vh;
   position: relative;
+  display: block;
 }
 
 .banner-div img {
@@ -35,13 +36,20 @@
 }
 .banner-details-overview {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 33%;
 }
+.banner-details-overview h3 {
+  text-decoration: underline;
+}
 .banner-details-overview p {
+  border: 1px solid white;
+  border-radius: 5px;
   padding: 1vh;
-  font-weight: bold;
-  font-size: 1.1rem;
+  font-weight: normal;
+  font-size: 1rem;
   margin: 2vh;
 }
 .banner-details {
@@ -60,4 +68,34 @@
 }
 .banner-details h2 {
   opacity: 1;
+}
+
+@media only screen and (max-width: 430px) {
+  .banner-details {
+    display: block;
+    height: fit-content;
+  }
+  .banner-div{
+    border-radius: 5px;
+  }
+  .banner-details-img{
+    margin: 0vh auto;
+  }
+  .banner-details-info, .banner-details-overview {
+    margin: 1vh 0vh;
+    background-color: var(--secondary);
+    padding: 1vh;
+    width: 100%;
+    margin: 0vh auto;
+    display: block;
+  }
+  .banner-details-info h2{
+    font-size: 1.25rem;
+  }
+  .banner-details-info h3{
+    font-size: 1.1rem;
+  }
+  .banner-details-info, .banner-details-overview  {
+    text-align: center;
+  }
 }

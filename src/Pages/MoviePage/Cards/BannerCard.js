@@ -60,6 +60,7 @@ function BannerCard({ movie }) {
           <p>Release Date - {movie.release_date}</p>
         </div>
         <div className="banner-details-overview">
+          <h3>Overview</h3>
           <p>{movie.overview}</p>
         </div>
       </div>
