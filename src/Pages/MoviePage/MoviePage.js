@@ -4,6 +4,7 @@ import BannerCard from "./Cards/BannerCard";
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { getMovieDetails, selectMovies } from "../../Slices/MoviesSlice";
+import ReviewsCard from "./Cards/ReviewsCard";
 
 function MoviePage() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function MoviePage() {
 
   return <div>
     <BannerCard movie={movie} />
+    <ReviewsCard id = {id} />
   </div>;
 }
 

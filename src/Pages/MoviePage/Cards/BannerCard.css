@@ -78,6 +78,7 @@
   }
   .banner-div{
     border-radius: 5px;
+    height: fit-content;
   }
   .banner-details-img{
     margin: 0vh auto;

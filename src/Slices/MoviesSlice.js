@@ -14,10 +14,22 @@ const getMovieDetails = createAsyncThunk(
     }
 );
 
+const getMovieReviews = createAsyncThunk(
+    "movies/getMovieReviews",
+    async({id,page}) => {
+        const response = await axios.get(
+            `https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=${page}`,
+            {headers: { Authorization: `Bearer ${api_key}` } }
+        );
+        return response.data;
+    }
+)
+
 const MovieSlice= createSlice({
     name: 'movies',
     initialState: {
         movie: [],
+        reviews: [],
         status: "idle",
         error: null
     },
@@ -34,11 +46,23 @@ const MovieSlice= createSlice({
                 state.status = 'error';
                 state.error = action.error.message;
             })
+            .addCase(getMovieReviews.pending, (state) => {
+                state.status = 'loading';
+            })
+            .addCase( getMovieReviews.fulfilled, (state,action) => {
+                state.status = 'completed';
+                state.reviews = action.payload;
+            })
+            .addCase(getMovieReviews.rejected, (state,action) => {
+                state.status = 'error';
+                state.error = action.error.message;
+            })
     }
 })
 
 export {
-    getMovieDetails
+    getMovieDetails,
+    getMovieReviews
 }
 
 export default MovieSlice.reducer;
