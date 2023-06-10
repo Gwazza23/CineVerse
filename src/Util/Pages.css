@@ -22,6 +22,11 @@
     color: var(--primary);
 }
 
+.page-title{
+    margin-top: 5vh;
+    text-align: center;
+}
+
 @media only screen and (max-width:430px){
     .page-div{
         display: block;

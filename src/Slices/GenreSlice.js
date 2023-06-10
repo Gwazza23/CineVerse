@@ -33,7 +33,7 @@ const genreSlice = createSlice({
       .addCase(getMovieGenres.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
-      });
+      })
   },
 });
 

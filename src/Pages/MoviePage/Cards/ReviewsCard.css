@@ -27,6 +27,7 @@
 
 .review-content{
     display: flex;
+    overflow: scroll;
     flex-direction: column;
     border-radius: 5px;
     margin: 1vh;

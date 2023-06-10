@@ -59,7 +59,7 @@ function GenreCard({ genres }) {
                   }}
                   key={genre["genre"]["id"]}
                   onClick={() => {
-                    navigate(`/genre/${genre['genre']['id']}`)
+                    navigate(`/genre/${genre['genre']['id']}/${genre['genre']['name']}`)
                   }}
                 >
                   <h3>{genre["genre"]["name"]}</h3>

@@ -47,6 +47,17 @@ const getMoviesByGenre = createAsyncThunk(
   }
 );
 
+const getAllMoviesByGenre = createAsyncThunk(
+  "lists/getAllMoviesByGenre",
+  async (genreId) => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&with_genres=${genreId}`,
+      { headers: { Authorization: `Bearer ${api_key}` } }
+    );
+    return response.data.results;
+  }
+);
+
 const getMoviesNowPlaying = createAsyncThunk(
   "lists/getMoviesNowPlaying",
   async (genreId) => {
@@ -63,6 +74,7 @@ const MovieListSlice = createSlice({
   initialState: {
     popular: [],
     genre: [],
+    allGenre: [],
     upcoming: [],
     topRated: [],
     nowPlaying: [],
@@ -125,7 +137,18 @@ const MovieListSlice = createSlice({
       .addCase(getTopRatedMovies.rejected, (state, action) => {
         state.status = "error";
         state.error = action.error.message;
-      });
+      })
+      .addCase(getAllMoviesByGenre.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(getAllMoviesByGenre.fulfilled, (state, action) => {
+        state.status = "completed";
+        state.allGenre = action.payload;
+      })
+      .addCase(getAllMoviesByGenre.rejected, (state, action) => {
+        state.status = "error";
+        state.error = action.error.message;
+      })
   },
 });
 
@@ -134,7 +157,8 @@ export {
   getMoviesByGenre,
   getMoviesNowPlaying,
   getUpcomingMovies,
-  getTopRatedMovies
+  getTopRatedMovies,
+  getAllMoviesByGenre
 };
 export default MovieListSlice.reducer;
 export const selectLists = (state) => state.lists;
