@@ -17,10 +17,6 @@ function BannerCard({ movie }) {
   };
 
   const runtime = convertTime(movie.runtime);
-
-  if (!movie) {
-    return <h1>..Loading</h1>;
-  }
   const formattedNumber = Math.round(movie.vote_average * 10) / 10;
 
   let textColor;
