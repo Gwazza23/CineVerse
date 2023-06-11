@@ -9,19 +9,19 @@ import ReviewsCard from "./Cards/ReviewsCard";
 function MoviePage() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const [isLoading, setIsLoading] = useState(true); // Added loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   const movie = useSelector(selectMovies).movie;
 
   useEffect(() => {
-    setIsLoading(true); // Set loading state to true before fetching new movie details
+    setIsLoading(true);
     dispatch(getMovieDetails(id))
-      .then(() => setIsLoading(false)) // Set loading state to false when details are fetched
-      .catch(() => setIsLoading(false)); // Set loading state to false in case of an error
+      .then(() => setIsLoading(false))
+      .catch(() => setIsLoading(false));
   }, [dispatch, id]);
 
   if (isLoading) {
-    return <div>Loading...</div>; // Display loading screen while fetching movie details
+    return <div>Loading...</div>;
   }
 
   return (

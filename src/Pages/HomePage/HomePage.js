@@ -1,12 +1,13 @@
 import PopularCard from "./Cards/PopularCard";
 import GenreCard from "./Cards/GenreCard";
+import MoviesNowPlaying from "./Cards/MoviesNowPlaying";
+
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getPopularMovies, selectLists, getMoviesNowPlaying } from "../../Slices/MovieListSlice";
 import { getMovieGenres, selectGenre } from "../../Slices/GenreSlice";
-import MoviesNowPlaying from "./Cards/MoviesNowPlaying";
 
 
 function HomePage() {
