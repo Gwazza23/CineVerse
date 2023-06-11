@@ -5,9 +5,8 @@ import "./MoviesNowPlaying.css";
 function MoviesNowPlaying({ moviesNowPlaying }) {
   const nowPlaying = moviesNowPlaying.nowPlaying;
   const [preloadedImages, setPreloadedImages] = useState([]);
-
+  console.log(preloadedImages)
   useEffect(() => {
-    // Preload images on component mount
     const images = nowPlaying && nowPlaying.map((movie) => {
       const img = new Image();
       img.src = `https://image.tmdb.org/t/p/w342${movie.poster_path}`;

@@ -1,0 +1,27 @@
+.cast-card-div {
+    border: 1px solid var(--secondary-light);
+    margin: 2.5vh;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    display: flex;
+    overflow: scroll;
+    padding: 1vh;
+}
+
+.cast-card-container h2{
+    margin: 2.5vh;
+}
+
+.cast-card {
+    border: 1px solid var(--primary);
+    border-radius: 5px;
+    margin: 1vh;
+    background-color: var(--secondary-light);
+}
+.cast-card img{
+    border-radius: 5px;
+}
+.cast-card h4 {
+    margin: 0.5vh;
+    text-align: center;
+}

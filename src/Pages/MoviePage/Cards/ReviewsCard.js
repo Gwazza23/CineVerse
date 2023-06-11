@@ -20,21 +20,26 @@ function ReviewsCard({ id }) {
     dispatch(getMovieReviews({ id: id, page: 1 }));
   }, [dispatch, id]);
 
+  const renderReviewContent = (content, reviewId) => {
+    if (content.length > 250 && !showFullMap[reviewId]) {
+      const truncatedContent = `${content.slice(0, 250)}...`;
+      return { __html: truncatedContent };
+    }
+    return { __html: content };
+  };
+
   return (
     <div className="reviews-div">
       <h2>Reviews</h2>
       {reviews && reviews.length === 0 ? (
         <p className="no-reviews">No reviews available</p>
       ) : (
-        reviews && reviews.map((review) => (
+        reviews &&
+        reviews.map((review) => (
           <div className="review-card" key={review.id}>
             <h3>{review.author}</h3>
             <div className="review-content">
-              <p>
-                {review.content.length > 250 && !showFullMap[review.id]
-                  ? `${review.content.slice(0, 250)}...`
-                  : review.content}
-              </p>
+              <p dangerouslySetInnerHTML={renderReviewContent(review.content, review.id)}></p>
               {review.content.length > 250 && (
                 <button onClick={() => toggleContent(review.id)}>
                   {showFullMap[review.id] ? "Show Less" : "Show More"}
@@ -48,4 +53,4 @@ function ReviewsCard({ id }) {
   );
 }
 
-export default ReviewsCard
+export default ReviewsCard;

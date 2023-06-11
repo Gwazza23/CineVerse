@@ -5,7 +5,7 @@ import "./PopularCard.css";
 function PopularCard({ movies }) {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [preloadedImages, setPreloadedImages] = useState([]);
-
+  console.log(preloadedImages)
   useEffect(() => {
     // Preload images on component mount
     const images = movies && movies.popular.slice(0, 3).map((movie) => {

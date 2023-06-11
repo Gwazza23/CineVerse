@@ -1,6 +1,7 @@
 import "./BannerCard.css";
 
-function BannerCard({ movie }) {
+function BannerCard({ movie, credits }) {
+
   const convertTime = (mins) => {
     let hours = Math.floor(mins / 60);
     let remainingMinutes = mins % 60;
@@ -29,6 +30,9 @@ function BannerCard({ movie }) {
     textColor = "red";
   }
 
+  const director = credits?.crew?.find(member => member.job === 'Director');
+  const directorName = director ? director.name : "Unknown Director";
+
   return (
     <div className="banner-div">
       <img
@@ -54,6 +58,7 @@ function BannerCard({ movie }) {
           </p>
           <p>Runtime - {runtime}</p>
           <p>Release Date - {movie.release_date}</p>
+          <p>Director - {directorName}</p>
         </div>
         <div className="banner-details-overview">
           <h3>Overview</h3>

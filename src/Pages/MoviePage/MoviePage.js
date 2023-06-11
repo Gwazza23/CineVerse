@@ -1,32 +1,28 @@
 import { useParams } from "react-router-dom";
 import BannerCard from "./Cards/BannerCard";
 
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { getMovieDetails, selectMovies } from "../../Slices/MoviesSlice";
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { getMovieCredits, getMovieDetails, selectMovies } from "../../Slices/MoviesSlice";
 import ReviewsCard from "./Cards/ReviewsCard";
+import CastCard from "./Cards/CastCard";
 
 function MoviePage() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  const [isLoading, setIsLoading] = useState(true);
 
   const movie = useSelector(selectMovies).movie;
+  const credits = useSelector(selectMovies).credits;
 
   useEffect(() => {
-    setIsLoading(true);
-    dispatch(getMovieDetails(id))
-      .then(() => setIsLoading(false))
-      .catch(() => setIsLoading(false));
+    dispatch(getMovieDetails(id));
+    dispatch(getMovieCredits(id));
   }, [dispatch, id]);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div>
-      <BannerCard movie={movie} />
+      <BannerCard movie={movie} credits={credits}/>
+      <CastCard credits={credits}/>
       <ReviewsCard id={id} />
     </div>
   );
