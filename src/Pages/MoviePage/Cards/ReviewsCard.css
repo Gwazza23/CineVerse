@@ -46,11 +46,18 @@
     background: none;
 }
 
+.no-reviews {
+    margin: 1vh;
+}
+
 @media only screen and (max-width: 430px){
     .reviews-div h2{
         text-align: center;
     }
     .review-content p {
         font-size: 0.9rem;
+    }
+    .no-reviews {
+        text-align: center;
     }
 }

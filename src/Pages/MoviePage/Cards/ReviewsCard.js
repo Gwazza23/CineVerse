@@ -22,9 +22,11 @@ function ReviewsCard({ id }) {
 
   return (
     <div className="reviews-div">
-        <h2>Reviews</h2>
-      {reviews &&
-        reviews.map((review) => (
+      <h2>Reviews</h2>
+      {reviews && reviews.length === 0 ? (
+        <p className="no-reviews">No reviews available</p>
+      ) : (
+        reviews && reviews.map((review) => (
           <div className="review-card" key={review.id}>
             <h3>{review.author}</h3>
             <div className="review-content">
@@ -40,9 +42,10 @@ function ReviewsCard({ id }) {
               )}
             </div>
           </div>
-        ))}
+        ))
+      )}
     </div>
   );
 }
 
-export default ReviewsCard;
+export default ReviewsCard
