@@ -17,6 +17,7 @@
     border-radius: 5px;
     margin: 1vh;
     background-color: var(--secondary-light);
+    height: 95%;
 }
 .cast-card img{
     border-radius: 5px;

@@ -2,7 +2,7 @@ import "./CastCard.css";
 
 function CastCard({ credits }) {
   const cast = credits.cast;
-  console.log(cast);
+  
   return (
     <div className="cast-card-container">
     <h2>Cast</h2>
@@ -10,7 +10,7 @@ function CastCard({ credits }) {
       {cast &&
         cast.map((member) => {
           return (
-            <>
+            <div key={member.id}>
               {member.profile_path !== null ? (
                 <div className="cast-card">
                   <img
@@ -20,7 +20,7 @@ function CastCard({ credits }) {
                   <h4>{member.name}</h4>
                 </div>
               ) : null}
-            </>
+            </div>
           );
         })}
     </div>

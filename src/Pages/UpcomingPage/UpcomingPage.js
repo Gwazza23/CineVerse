@@ -2,6 +2,8 @@ import "../../Util/Pages.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUpcomingMovies, selectLists } from "../../Slices/MovieListSlice";
+import { motion } from "framer-motion";
+import { pageVariants } from "../../Util/PageVariants";
 import MovieCards from "../../Util/MovieCards";
 import Button from "../../Util/Button";
 
@@ -30,7 +32,12 @@ function PopularPage() {
     dispatch(getUpcomingMovies(page));
   }, [dispatch, page]);
   return (
-    <>
+    <motion.div
+      initial="initial"
+      exit="exit"
+      animate="animate"
+      variants={pageVariants}
+    >
       <div className="page-div">
         {popularList &&
           popularList.map((movie) => {
@@ -49,7 +56,7 @@ function PopularPage() {
           <Button page={"nextPage"} onClick={handleNextPage} />
         </div>
       )}
-    </>
+    </motion.div>
   );
 }
 

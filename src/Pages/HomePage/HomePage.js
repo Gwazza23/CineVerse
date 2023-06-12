@@ -2,6 +2,8 @@ import PopularCard from "./Cards/PopularCard";
 import GenreCard from "./Cards/GenreCard";
 import MoviesNowPlaying from "./Cards/MoviesNowPlaying";
 
+import { motion } from 'framer-motion';
+import { pageVariants } from '../../Util/PageVariants'
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,11 +25,11 @@ function HomePage() {
   }, [dispatch]);
   
   return (
-    <div>
+    <motion.div variants={pageVariants} initial='initial' animate='animate' exit='exit'>
       <PopularCard movies={movieLists}/>
       <GenreCard genres={movieGenres}/>
       <MoviesNowPlaying moviesNowPlaying={movieLists}/>
-    </div>
+    </motion.div>
   );
 }
 
